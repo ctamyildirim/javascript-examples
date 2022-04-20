@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #alan{
+            width: 1000px;
+            height: auto;
+            padding: 20px;
+            text-transform: uppercase;
+            border: 1px solid black;
+            color: black;
+        }
+        #youtube{
+            text-align: center;
+            line-height: 1.8;
+            height: 30px;
+            background-color: red;
+            margin: 10px 0 ;
+            border-radius: 5px;
+
+        }
+        #google{
+            height: 30px;
+            background-color: green;
+            margin: 10px 0 ;
+            text-align: center;
+            line-height: 1.8;
+            border-radius: 5px;
+
+    
+        }
+        #meta{
+            height: 30px;
+            background-color: rgb(4, 38, 100);
+            margin: 10px 0 ;
+            text-align: center;
+            line-height: 1.8;
+            border-radius: 5px;
+            color: aliceblue;
+
+                    
+        }
+        #twitter{
+            height: 30px;
+            background-color: rgb(25, 80, 126);
+            margin: 10px 0 ;
+            text-align: center;
+            line-height: 1.8;
+            border-radius: 5px;
+
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div id="alan">
+        <h3>Yıllara göre müşteri sayısı</h3>
+        <div id="youtube" >
+            youtube
+        </div>
+        <div id="google" >      
+            google  
+        </div>
+        <div id="meta">        
+            meta
+        </div>
+        <div id="twitter">        
+            twitter
+        </div>
+
+    </div>
+
+        
+
+
+
+
+    <script>
+
+        var y = document.getElementById("youtube")
+        var g = document.getElementById("google")
+        var m = document.getElementById("meta")
+        var t = document.getElementById("twitter")
+        var z=true;
+
+        var ms=[];
+        for (i=0;i<4;i++){
+          var customerNumber =  Math.round(Math.random()*100)
+          
+            ms.push(customerNumber)
+            switch(i) {
+                case 0:
+                    let a1 = ms[i].toString();
+                    y.style.width = a1 + "px"
+                break;
+                case 1:
+                    let a2 = ms[i].toString();
+                    g.style.width = a2 + "px"
+                break;
+                case 2:
+                    let a3 = ms[i].toString();
+                    m.style.width = a3 + "px"
+                break;
+                case 3:
+                    let a4 = ms[i].toString();
+                    t.style.width = a4 + "px"
+                break;
+            }
+        }
+
+
+        
+        
+    
+       var f = setInterval(function(){
+        for (n=0;n<4;n++){
+            var newCustomer =  Math.round(Math.random())
+            ms[n]= ms[n] + newCustomer
+            if(ms[n] > 1000 ){
+               clearInterval(f)    
+            }
+
+            switch(n) {
+                case 0:
+                    let a1 = ms[n].toString();
+                   var w1= y.style.width = a1 + "px"
+                   
+
+                    
+                break;
+                case 1:
+                    let a2 = ms[n].toString();
+                    var w2= g.style.width = a2 + "px"
+                    
+
+                break;
+                case 2:
+                    let a3 = ms[n].toString();
+                    var w3=  m.style.width = a3 + "px"
+                   
+
+                break;
+                case 3:
+                    let a4 = ms[n].toString();
+                    var w4=  t.style.width = a4 + "px"
+                
+                break;
+            }
+            }
+        
+
+        },1)
+
+        
+    </script>
+</body>
+</html>

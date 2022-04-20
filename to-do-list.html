@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+
+ #kapsayıcı{
+    width: 500px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+ }
+ #alan{
+     margin-bottom: 20px;
+ }
+ p{
+    margin: 10px;
+ }
+
+
+</style>
+
+
+</head>
+<body>
+    <h1 style="text-align: center;">To-Do List</h1>
+    <div id="kapsayıcı">
+        <input id ="alan" type="text" >
+        <button type="submit" id="add">Add</button>
+        <button type="submit" id="clear">Clear</button>
+    </div>
+
+    <script>
+        empty =""
+        counter = 0
+        document.getElementById("add").addEventListener("click", function(){
+
+            var tag = document.createElement("p")
+            var text = document.createTextNode(document.getElementById("alan").value);
+           
+           tag.appendChild(text);
+           document.getElementById("kapsayıcı").appendChild(tag)
+
+           document.getElementById("alan").value= empty
+            
+           tag.addEventListener("click", function(){
+               tag.style.textDecoration = "line-through"       
+
+            })
+            tag.addEventListener("click", function(){
+                tag.style.textDecoration = "line-through"       
+            })
+           
+        })
+
+        document.getElementById("clear").addEventListener("click", function(){
+         var a = document.querySelectorAll('p')
+         var x 
+         for (x of a)
+         {
+           x.remove();
+         }
+        })
+        
+        
+
+
+
+    </script>
+
+
+
+</body>
+</html>
