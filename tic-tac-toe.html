@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="jquery-3.6.0.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>  
+    
+    <style>
+        html{
+            outline: none;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        #inclusivearea{
+            width: 1000px;
+            height: 500px;
+            margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 200px;
+            border-radius: 25px;
+            background-color: #f2f2f2;
+            box-shadow: 10px 10px 10px 20px rgb(163, 162, 162);
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+        }
+        #game_area_inclusive{
+            width: 50%;
+            height: 100%;
+            border:1px solid black;
+
+        }
+        #score_area_iclusive{
+            width: 50%;
+            height: 100%;
+            border:1px solid black;
+
+        }
+
+        #game_area{
+
+            width: 330px;
+            height: 330px;
+        }
+
+        button{
+            cursor: pointer;
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1 style="margin-top: 150px; text-align: center; ">TIC-TOC-TOE</h1>
+    <div id="inclusivearea">
+        <div id="game_area_inclusive" class="d-flex justify-content-center align-items-center">
+            <div id="game_area">
+            <div id="game" class="container m-0 p-0">
+                <div class="row p-0 m-0" style="height: 110px;">
+                    <div class="col-md-4  m-0 p-0 d-flex justify-content-center align-items-center"><button id="1" class="w-100 h-100 bg-light border-dark"></button></div>
+                    <div class="col-md-4  m-0 p-0 d-flex justify-content-center align-items-center"><button id="2" class="w-100 h-100 bg-light border-dark"></button></div>
+                    <div class="col-md-4  m-0 p-0 d-flex justify-content-center align-items-center"><button id="3" class="w-100 h-100 bg-light border-dark"></button></div>
+                </div>
+                <div class="row p-0 m-0" style="height: 110px;">
+                    <div class="col-md-4  m-0 p-0 d-flex justify-content-center align-items-center"><button id="4" class="w-100 h-100 bg-light border-dark"></button></div>
+                    <div class="col-md-4  m-0 p-0 d-flex justify-content-center align-items-center"><button id="5" class="w-100 h-100 bg-light border-dark"></button></div>
+                    <div class="col-md-4  m-0 p-0 d-flex justify-content-center align-items-center"><button id="6" class="w-100 h-100 bg-light border-dark"></button></div>
+                </div>
+                <div class="row p-0 m-0" style="height: 110px;">
+                    <div class="col-md-4  m-0 p-0 d-flex justify-content-center align-items-center"><button id="7" class="w-100 h-100 bg-light border-dark"></button></div>
+                    <div class="col-md-4  m-0 p-0 d-flex justify-content-center align-items-center"><button id="8" class="w-100 h-100 bg-light border-dark"></button></div>
+                    <div class="col-md-4  m-0 p-0 d-flex justify-content-center align-items-center"><button id="9" class="w-100 h-100 bg-light border-dark"></button></div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="score_area_iclusive" class="d-flex justify-content-center align-items-center border">
+            <div class="container d-flex justify-content-center align-items-center  mx-auto">
+                <h3 id="hamle">Oyuna Başla!</h3>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            var control = true;
+            var btn1 = $("#1");
+            var btn2 = $("#2");
+            var btn3 = $("#3");
+            var btn4 = $("#4");
+            var btn5 = $("#5");
+            var btn6 = $("#6");
+            var btn7 = $("#7");
+            var btn8 = $("#8");
+            var btn9 = $("#9");
+            var btn_list = [btn1 , btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9];
+            var game_over = false;
+
+            $("button").click(function(){
+                var a= ""
+                var b=$(this).text();
+                console.log(b)
+                if( b == a){
+                    if(control == true){
+                        $(this).text("X");
+                        control = false;
+                        $("#hamle").text("Hamle Sırası: O")
+                    }
+                    else if(control == false){
+                        $(this).text("O")
+                        control = true;               
+                        $("#hamle").text("Hamle Sırası: X")
+                    }   
+                }
+                else{
+                    $("#hamle").text("Geçersiz hamle")
+                }
+                var x="X";
+                var o="O"
+                if(btn1.text() == btn2.text() & btn1.text() == btn3.text()){
+                    if(btn1.text() == x){
+                        $("#hamle").text("Kazanan: X")
+                        game_over=true;
+
+                    }
+                    else if(btn1.text() == o){
+                    $("#hamle").text("Kazanan: O")
+                    game_over=true;
+
+                    }
+                    else{
+                    }
+                }
+                if(btn4.text() == btn5.text() & btn4.text() == btn6.text()){
+                    if(btn4.text() == x){
+                        $("#hamle").text("Kazanan: X")
+                        game_over=true;
+
+                    }
+                    else if(btn4.text() == o){
+                    $("#hamle").text("Kazanan: O")
+                    game_over=true;
+
+                    }
+                    else{
+                    }
+                }
+                if(btn7.text() == btn8.text() & btn7.text() == btn9.text()){
+                    if(btn7.text() == x){
+                        $("#hamle").text("Kazanan: X")
+                        game_over=true;
+
+                    }
+                    else if(btn7.text() == o){
+                    $("#hamle").text("Kazanan: O")
+                    game_over=true;
+
+                    }
+                    else{
+                    }
+                }
+                if(btn1.text() == btn4.text() & btn4.text() == btn7.text()){
+                    if(btn7.text() == x){
+                        $("#hamle").text("Kazanan: X")
+                        game_over=true;
+
+                    }
+                    else if(btn7.text() == o){
+                    $("#hamle").text("Kazanan: O")
+                    game_over=true;
+
+                    }
+                    else{
+                    }
+                }
+                if(btn2.text() == btn5.text() & btn8.text() == btn5.text()){
+                    if(btn2.text() == x){
+                        $("#hamle").text("Kazanan: X")
+                        game_over=true;
+
+                    }
+                    else if(btn2.text() == o){
+                    $("#hamle").text("Kazanan: O")
+                    game_over=true;
+
+                    }
+                    else{
+                    }
+                }
+                if(btn3.text() == btn6.text() & btn6.text() == btn9.text()){
+                    if(btn3.text() == x){
+                        $("#hamle").text("Kazanan: X")
+                        game_over=true;
+
+                    }
+                    else if(btn3.text() == o){
+                    $("#hamle").text("Kazanan: O")
+                    game_over=true;
+
+                    }
+                    else{
+                    }
+                }
+
+                if(btn1.text() == btn5.text() & btn5.text() == btn9.text()){
+                    if(btn1.text() == x){
+                        $("#hamle").text("Kazanan: X")
+                        game_over=true;
+
+                    }
+                    else if(btn1.text() == o){
+                    $("#hamle").text("Kazanan: O")
+                    game_over=true;
+
+                    }
+                    else{
+                    }
+                }
+                if(btn3.text() == btn5.text() & btn5.text() == btn7.text()){
+                    if(btn3.text() == x){
+                        $("#hamle").text("Kazanan: X")
+                        game_over=true;
+
+                    }
+                    else if(btn3.text() == o){
+                    $("#hamle").text("Kazanan: O")
+                    game_over=true;
+                    }
+                    else{
+                    }
+                }
+                if (game_over == true){
+                    setTimeout(function() {
+                        btn_list.forEach(element => {
+                        element.text("") 
+                    });
+                    game_over= false;
+                    $("#hamle").text("Oyuna Başla!")
+
+                    }, 2000);
+                }
+            }) 
+            
+
+               
+        })
+    </script>    
+</body>
+</html>
